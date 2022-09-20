@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  nest-api:
+    build:
+      target: development
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest-api
+    restart: always
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    depends_on:
+      - nest-postgres
+    env_file:
+      - .env
+    command: yarn run start:debug
+
+  nest-postgres:
+    image: postgres:13
+    container_name: nest-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - nest-postgres:/var/lib/postgresql/data/
+  
+  prisma-studio:
+    container_name: prisma-studio
+    image: timothyjmiller/prisma-studio:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5555:5555"
+
+volumes:
+  nest-postgres:
+    name: nest-postgres-db
