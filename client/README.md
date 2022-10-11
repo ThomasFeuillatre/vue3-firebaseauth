@@ -1,42 +1,49 @@
-# Nuxt 3 Minimal Starter
+# The Project
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Boilerplate project project to help strat new project that include :
 
-## Setup
+- docker
+- vite
+- vue3
+- typescript
+- pinia
+- vitest (and vue test utils)
+- saas
+- windiCSS
+- eslint/prettier
 
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
+### Pull Docker images
 
 ```bash
-npm run dev
+  yarn images
 ```
 
-## Production
-
-Build the application for production:
+### Run container and launch dev server
 
 ```bash
-npm run build
+  yarn up
 ```
 
-Locally preview production build:
+### Kill container
 
 ```bash
-npm run preview
+  yarn down
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+### Reboot the app
+
+```bash
+  yarn reboot
+```
+
+### Run tests
+
+```bash
+  yarn test
+```
+
+### Access container's shell
+
+```bash
+  yarn shell
+```

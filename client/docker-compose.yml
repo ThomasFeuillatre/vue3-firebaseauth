@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  client:
+    image: node:16-bullseye
+    working_dir: /app
+    container_name: client
+    entrypoint:
+      ['/bin/bash', '-c', 'yarn install --production=false && yarn dev']
+    ports:
+      - 127.0.0.1:1717:1717
+    volumes:
+      - ${PWD}:/app/
