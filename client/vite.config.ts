@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitest/config';
 import path from 'path';
 import vue from '@vitejs/plugin-vue';
-import WindiCSS from 'vite-plugin-windicss';
+
+// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
+import vuetify from 'vite-plugin-vuetify';
 
 export default defineConfig({
-  plugins: [vue(), WindiCSS()],
+  plugins: [vue(), vuetify({ autoImport: true })],
   server: {
     port: 1717,
     host: '0.0.0.0',

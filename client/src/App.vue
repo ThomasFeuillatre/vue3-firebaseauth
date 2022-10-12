@@ -1,10 +1,21 @@
-<script setup lang="ts">
-  const test = "OK"
-</script>
-
 <template>
-  <router-view></router-view>
+  <v-app>
+    <v-main>
+      <router-view class="h-100" />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-</style>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+
+  data() {
+    return {
+      //
+    };
+  },
+});
+</script>

@@ -1,7 +1,20 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import 'virtual:windi.css';
-import router from './router/index';
+import router from './router';
+import vuetify from './plugins/vuetify';
+import { loadFonts } from './plugins/webfontloader';
 import { createPinia } from 'pinia';
 
-createApp(App).use(router).use(createPinia()).mount('#app');
+import firebase from 'firebase/compat';
+import { firebaseConfig } from '../firebaseConfig';
+
+firebase.initializeApp(firebaseConfig);
+
+loadFonts();
+
+const app = createApp(App);
+
+app.use(router);
+app.use(createPinia());
+app.use(vuetify);
+app.mount('#app');
